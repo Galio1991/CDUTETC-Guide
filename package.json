@@ -1,0 +1,23 @@
+{
+  "name": "cdutetc-guide",
+  "version": "1.0.0",
+  "description": "成都理工大学工程技术学院 生存指南 & 飞跃手册",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier --write \"docs/**/*.md\"",
+    "format:check": "prettier --check \"docs/**/*.md\"",
+    "lint": "markdownlint \"docs/**/*.md\" --ignore node_modules",
+    "lint:fix": "markdownlint --fix \"docs/**/*.md\" --ignore node_modules"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.0",
+    "vue": "^3.5.0",
+    "prettier": "^3.4.0",
+    "markdownlint-cli": "^0.43.0",
+    "gray-matter": "^4.0.3"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
