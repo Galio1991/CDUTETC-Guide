@@ -3,7 +3,7 @@ layout: home
 hero:
   name: 成都理工大学工程技术学院
   text: 生存指南 & 飞跃手册
-  tagline: 由贴吧吧务团队运营 · 同学们共建共享
+  tagline: 由贴吧吧务团队运营维护 · 同学们共建共享
   actions:
     - theme: brand
       text: 生存指南
@@ -35,6 +35,21 @@ features:
 
 我们希望为在校生和新生提供实用的校园生活指南，也为即将升学或就业的同学提供来自学长学姐的真实经验参考。无论你处于大学的哪个阶段，都欢迎在这里找到你需要的信息。
 
+<div class="geo-divider">
+<span class="line"></span>
+<span class="dot"></span>
+<span class="circle"></span>
+<span class="diamond"></span>
+<span class="circle"></span>
+<span class="dot"></span>
+<span class="line"></span>
+</div>
+
+<div class="quote-section">
+<p class="quote-text">「前人栽树，后人乘凉。每一份经验的分享，都是对后来者最真诚的馈赠。」</p>
+<p class="quote-author">—— 致所有愿意分享的你</p>
+</div>
+
 ## 如何使用
 
 <div class="usage-grid">
@@ -61,6 +76,16 @@ features:
 </div>
 </div>
 
+<div class="geo-divider">
+<span class="line"></span>
+<span class="dot"></span>
+<span class="circle"></span>
+<span class="diamond"></span>
+<span class="circle"></span>
+<span class="dot"></span>
+<span class="line"></span>
+</div>
+
 ## 加入我们
 
 <div class="community-grid">
@@ -79,7 +104,7 @@ features:
 
 QQ 群号：待公布
 
-入学后可加入，结识同届同学，获取入学指导。
+欢迎加入贴吧迎新群，结识同届的小东西以及往届的老东西。
 
 </div>
 <div class="community-card">
