@@ -1,0 +1,60 @@
+/* ===== 构成主义 + 简约风格 ===== */
+
+:root {
+  /* 主色 - 深蓝系（沉稳、学术感） */
+  --vp-c-brand-1: #1a237e;
+  --vp-c-brand-2: #3949ab;
+  --vp-c-brand-3: #5c6bc0;
+  --vp-c-brand-soft: rgba(26, 35, 126, 0.14);
+
+  /* 强调色 - 红/橙（构成主义经典色） */
+  --color-accent: #d32f2f;
+  --color-accent-light: #ff6659;
+
+  /* 首页 hero 渐变 - 对角线构图 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #d32f2f 100%);
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    135deg,
+    #1a237e40 0%,
+    #3949ab30 50%,
+    #d32f2f20 100%
+  );
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  --vp-c-brand-1: #5c6bc0;
+  --vp-c-brand-2: #3949ab;
+  --vp-c-brand-3: #1a237e;
+  --vp-c-brand-soft: rgba(92, 107, 192, 0.2);
+  --color-accent: #ff6659;
+}
+
+/* 构成主义装饰 - h2 标题下划线 */
+.vp-doc h2 {
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.5rem;
+}
+
+/* 对角线装饰条 - hero 区域 */
+.VPHero .name {
+  position: relative;
+}
+
+.VPHero .name::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 120px;
+  height: 4px;
+  background: var(--color-accent);
+  transform: skewX(-20deg);
+}
+
+/* 侧边栏活跃项 - 红色标记 */
+.VPSidebarItem.is-active > .item > .indicator {
+  background-color: var(--color-accent);
+}
