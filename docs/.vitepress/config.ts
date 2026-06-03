@@ -35,7 +35,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: '欢迎投稿，共建585知识库',
+      message: '本文档由成都理工大学工程技术学院贴吧吧务团队运营与维护',
       copyright: '成都理工大学工程技术学院'
     },
 
