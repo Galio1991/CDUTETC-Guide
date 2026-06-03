@@ -6,7 +6,7 @@ export default defineConfig({
   title: '成理工程生存指南 & 飞跃手册',
   description: '成都理工大学工程技术学院学生生存指南与升学就业经验分享',
 
-  srcExclude: ['superpowers/**', 'templates/**'],
+  srcExclude: ['superpowers/**', 'templates/**', 'content-design.md', 'technical-architecture.md'],
   ignoreDeadLinks: true,
 
   themeConfig: {
