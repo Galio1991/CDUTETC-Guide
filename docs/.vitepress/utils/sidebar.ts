@@ -37,7 +37,7 @@ function getCategoryMeta(dirPath: string): CategoryMeta {
   }
 }
 
-function getMdFiles(dirPath: string): SidebarItem[] {
+function getMdFiles(dirPath: string, basePath: string): SidebarItem[] {
   const files = fs.readdirSync(dirPath)
   const items: { order: number; item: SidebarItem }[] = []
 
@@ -59,7 +59,7 @@ function getMdFiles(dirPath: string): SidebarItem[] {
         order: data.order ?? 99,
         item: {
           text: data.title || name,
-          link: fullPath.replace(/^docs/, '').replace(/\.md$/, '')
+          link: path.join(basePath, name)
         }
       })
     }
@@ -80,7 +80,8 @@ export function getSidebar(dirPath: string): SidebarItem[] {
 
     if (stat.isDirectory()) {
       const meta = getCategoryMeta(fullPath)
-      const children = getMdFiles(fullPath)
+      const basePath = '/' + path.join(path.basename(dirPath), entry)
+      const children = getMdFiles(fullPath, basePath)
 
       if (children.length > 0) {
         groups.push({
