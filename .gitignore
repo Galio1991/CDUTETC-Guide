@@ -10,3 +10,6 @@ docs/.vitepress/cache/
 Thumbs.db
 .env
 .env.local
+.agents/
+.claude/
+skills-lock.json
