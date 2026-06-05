@@ -18,6 +18,10 @@
     #d32f2f10 100%
   );
   --vp-home-hero-image-filter: blur(60px);
+
+  /* 缓动函数 */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark {
@@ -50,6 +54,7 @@
 .VPHero .text {
   max-width: 100% !important;
   margin: 0 auto;
+  text-wrap: balance;
 }
 
 .VPHero .name.clip {
@@ -64,39 +69,39 @@
   max-width: 100% !important;
   margin: 0 auto;
   text-align: center;
+  text-wrap: balance;
 }
 
 .VPHero .actions {
   justify-content: center !important;
 }
 
-/* ===== Hero 按钮美化 ===== */
+/* ===== Hero 按钮 ===== */
 
 .VPHero .actions .action a.VPButton {
-  padding: 16px 40px !important;
-  font-size: 1rem !important;
+  padding: 14px 36px !important;
+  font-size: 0.95rem !important;
   font-weight: 600 !important;
-  border-radius: 8px !important;
-  letter-spacing: 1px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  position: relative;
-  overflow: hidden;
+  border-radius: 6px !important;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s var(--ease-out-quart), box-shadow 0.2s var(--ease-out-quart), background 0.2s ease !important;
 }
 
 .VPHero .actions .action a.VPButton.brand {
-  background: linear-gradient(135deg, #1a237e 0%, #283593 100%) !important;
+  background: var(--vp-c-brand-1) !important;
   border: none !important;
-  box-shadow: 0 4px 16px rgba(26, 35, 126, 0.25);
+  box-shadow: 0 2px 8px rgba(26, 35, 126, 0.2);
 }
 
 .VPHero .actions .action a.VPButton.brand:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 28px rgba(26, 35, 126, 0.35) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.25) !important;
+  background: var(--vp-c-brand-2) !important;
 }
 
 .VPHero .actions .action a.VPButton.alt {
   background: transparent !important;
-  border: 2px solid var(--vp-c-brand-2) !important;
+  border: 1.5px solid var(--vp-c-brand-2) !important;
   color: var(--vp-c-brand-1) !important;
 }
 
@@ -104,13 +109,16 @@
   background: var(--vp-c-brand-1) !important;
   color: #fff !important;
   border-color: var(--vp-c-brand-1) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 28px rgba(26, 35, 126, 0.2) !important;
+  transform: translateY(-1px) !important;
 }
 
 .dark .VPHero .actions .action a.VPButton.brand {
-  background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%) !important;
-  box-shadow: 0 4px 16px rgba(57, 73, 171, 0.3);
+  background: var(--vp-c-brand-2) !important;
+  box-shadow: 0 2px 8px rgba(57, 73, 171, 0.25);
+}
+
+.dark .VPHero .actions .action a.VPButton.brand:hover {
+  background: var(--vp-c-brand-3) !important;
 }
 
 .dark .VPHero .actions .action a.VPButton.alt {
@@ -119,49 +127,47 @@
 }
 
 .dark .VPHero .actions .action a.VPButton.alt:hover {
-  background: #5c6bc0 !important;
-  border-color: #5c6bc0 !important;
+  background: var(--vp-c-brand-2) !important;
+  border-color: var(--vp-c-brand-2) !important;
 }
 
-/* ===== Hero 几何装饰 + 两侧色块 ===== */
+/* ===== Hero 几何装饰 ===== */
 
 .VPHero {
   position: relative;
   overflow: hidden;
 }
 
-/* 左侧大色块 */
 .VPHero::before {
   content: '';
   position: absolute;
-  top: -20%;
-  left: -8%;
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, rgba(26, 35, 126, 0.04) 0%, rgba(57, 73, 171, 0.02) 100%);
+  top: -15%;
+  left: -6%;
+  width: 320px;
+  height: 320px;
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.03) 0%, rgba(57, 73, 171, 0.015) 100%);
   transform: rotate(45deg);
   pointer-events: none;
 }
 
-/* 右侧圆形色块 */
 .VPHero::after {
   content: '';
   position: absolute;
-  bottom: -15%;
-  right: -5%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(211, 47, 47, 0.04) 0%, transparent 70%);
+  bottom: -10%;
+  right: -4%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(211, 47, 47, 0.03) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
 }
 
 .dark .VPHero::before {
-  background: linear-gradient(135deg, rgba(121, 134, 203, 0.06) 0%, rgba(92, 107, 192, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(121, 134, 203, 0.05) 0%, rgba(92, 107, 192, 0.025) 100%);
 }
 
 .dark .VPHero::after {
-  background: radial-gradient(circle, rgba(255, 102, 89, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 102, 89, 0.05) 0%, transparent 70%);
 }
 
 /* ===== 页面两侧装饰 ===== */
@@ -170,84 +176,45 @@
   position: relative;
 }
 
-/* 左侧几何装饰条 */
 .VPHome::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
-  width: 48px;
+  width: 40px;
   height: 100vh;
   pointer-events: none;
   z-index: 1;
-  background:
-    linear-gradient(180deg,
-      transparent 0%,
-      rgba(26, 35, 126, 0.03) 15%,
-      rgba(26, 35, 126, 0.03) 85%,
-      transparent 100%
-    );
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(26, 35, 126, 0.025) 20%,
+    rgba(26, 35, 126, 0.025) 80%,
+    transparent 100%
+  );
 }
 
-/* 右侧几何装饰条 */
 .VPHome::after {
   content: '';
   position: fixed;
   top: 0;
   right: 0;
-  width: 48px;
+  width: 40px;
   height: 100vh;
   pointer-events: none;
   z-index: 1;
-  background:
-    linear-gradient(180deg,
-      transparent 0%,
-      rgba(211, 47, 47, 0.025) 15%,
-      rgba(211, 47, 47, 0.025) 85%,
-      transparent 100%
-    );
-}
-
-/* 左侧装饰 - 几何图案叠加 */
-.VPHome .VPFeatures::before {
-  content: '';
-  position: fixed;
-  top: 30%;
-  left: 8px;
-  width: 32px;
-  height: 200px;
-  pointer-events: none;
-  z-index: 2;
-  background:
-    repeating-linear-gradient(
-      180deg,
-      transparent 0px,
-      transparent 18px,
-      rgba(26, 35, 126, 0.06) 18px,
-      rgba(26, 35, 126, 0.06) 20px
-    );
-}
-
-/* 右侧装饰 - 点阵图案 */
-.VPHome .VPFeatures::after {
-  content: '';
-  position: fixed;
-  top: 25%;
-  right: 12px;
-  width: 24px;
-  height: 240px;
-  pointer-events: none;
-  z-index: 2;
-  background:
-    radial-gradient(circle 2px, rgba(211, 47, 47, 0.08) 100%, transparent 100%);
-  background-size: 12px 12px;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(211, 47, 47, 0.02) 20%,
+    rgba(211, 47, 47, 0.02) 80%,
+    transparent 100%
+  );
 }
 
 .dark .VPHome::before {
   background: linear-gradient(180deg,
     transparent 0%,
-    rgba(121, 134, 203, 0.04) 15%,
-    rgba(121, 134, 203, 0.04) 85%,
+    rgba(121, 134, 203, 0.035) 20%,
+    rgba(121, 134, 203, 0.035) 80%,
     transparent 100%
   );
 }
@@ -255,25 +222,10 @@
 .dark .VPHome::after {
   background: linear-gradient(180deg,
     transparent 0%,
-    rgba(255, 102, 89, 0.03) 15%,
-    rgba(255, 102, 89, 0.03) 85%,
+    rgba(255, 102, 89, 0.025) 20%,
+    rgba(255, 102, 89, 0.025) 80%,
     transparent 100%
   );
-}
-
-.dark .VPHome .VPFeatures::before {
-  background: repeating-linear-gradient(
-    180deg,
-    transparent 0px,
-    transparent 18px,
-    rgba(121, 134, 203, 0.08) 18px,
-    rgba(121, 134, 203, 0.08) 20px
-  );
-}
-
-.dark .VPHome .VPFeatures::after {
-  background: radial-gradient(circle 2px, rgba(255, 102, 89, 0.1) 100%, transparent 100%);
-  background-size: 12px 12px;
 }
 
 /* ===== 文档页 h2 ===== */
@@ -282,6 +234,7 @@
   position: relative;
   padding-bottom: 0.6rem;
   border-bottom: none;
+  text-wrap: balance;
 }
 
 .vp-doc h2::after {
@@ -289,43 +242,30 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 48px;
-  height: 3px;
+  width: 40px;
+  height: 2px;
   background: var(--color-accent);
-  border-radius: 2px;
+}
+
+.vp-doc h3 {
+  text-wrap: balance;
 }
 
 /* ===== Feature Cards ===== */
 
 .VPFeature {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.2s var(--ease-out-quart), border-color 0.2s ease, box-shadow 0.2s var(--ease-out-quart);
   border: 1px solid var(--vp-c-divider) !important;
 }
 
 .VPFeature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(26, 35, 126, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.06);
   border-color: var(--vp-c-brand-2) !important;
 }
 
 .dark .VPFeature:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-}
-
-.VPFeature .icon {
-  position: relative;
-}
-
-.VPFeature .icon::after {
-  content: '';
-  position: absolute;
-  top: -4px;
-  right: -4px;
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  opacity: 0.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== 侧边栏 ===== */
@@ -352,6 +292,7 @@
   display: inline-block;
   color: var(--vp-c-text-1);
   border-bottom: none;
+  text-wrap: balance;
 }
 
 .custom-home > h2::after {
@@ -359,17 +300,17 @@
   position: absolute;
   bottom: -6px;
   left: 0;
-  width: 40px;
-  height: 3px;
+  width: 36px;
+  height: 2px;
   background: var(--color-accent);
-  border-radius: 2px;
 }
 
 .custom-home > p {
   font-size: 1.05rem;
-  line-height: 1.9;
+  line-height: 1.85;
   color: var(--vp-c-text-1);
   margin-bottom: 16px;
+  max-width: 70ch;
 }
 
 /* ===== 构成主义分隔符 ===== */
@@ -378,9 +319,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   margin: 48px 0;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 .geo-divider .line {
@@ -390,77 +331,49 @@
 }
 
 .geo-divider .diamond {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   background: var(--color-accent);
   transform: rotate(45deg);
   flex-shrink: 0;
 }
 
 .geo-divider .circle {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border: 1.5px solid var(--vp-c-brand-2);
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .geo-divider .dot {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 3px;
   background: var(--vp-c-brand-3);
   border-radius: 50%;
   flex-shrink: 0;
-}
-
-/* ===== 引言区 ===== */
-
-.quote-section {
-  margin: 48px 0;
-  padding: 40px 32px;
-  position: relative;
-  text-align: center;
-  background: var(--vp-c-bg-soft);
-  border-radius: 12px;
-  border-left: 4px solid var(--color-accent);
-  border-right: 4px solid var(--vp-c-brand-2);
-}
-
-.quote-section .quote-text {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.8;
-  color: var(--vp-c-text-1);
-  font-style: italic;
-  margin: 0 0 12px;
-}
-
-.quote-section .quote-author {
-  font-size: 0.85rem;
-  color: var(--vp-c-text-3);
-  margin: 0;
 }
 
 /* ===== 使用指引网格 ===== */
 
 .usage-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
   margin-top: 20px;
 }
 
 .usage-card {
   padding: 24px 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--vp-c-bg-soft);
   border: 1px solid var(--vp-c-divider);
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s var(--ease-out-quart);
 }
 
 .usage-card:hover {
   border-color: var(--vp-c-brand-3);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .usage-card h3 {
@@ -488,34 +401,16 @@
 
 .community-card {
   padding: 28px 24px;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg-soft);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.community-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--color-accent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: transform 0.2s var(--ease-out-quart), border-color 0.2s ease, box-shadow 0.2s var(--ease-out-quart);
 }
 
 .community-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   border-color: var(--vp-c-brand-2);
-}
-
-.community-card:hover::before {
-  opacity: 1;
 }
 
 .community-card h3 {
@@ -538,7 +433,7 @@
   font-weight: 600;
   color: var(--vp-c-brand-1);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.15s ease;
 }
 
 .community-card a:hover {
@@ -553,22 +448,42 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 48px;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-accent), var(--vp-c-brand-2));
-  border-radius: 1px;
+  background: var(--color-accent);
 }
 
 /* ===== 动画 ===== */
 
 .VPContent,
 .VPDoc {
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.25s var(--ease-out-quart);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 减少动画 ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .VPContent,
+  .VPDoc {
+    animation: none;
+  }
+
+  .VPFeature,
+  .usage-card,
+  .community-card,
+  .VPHero .actions .action a.VPButton {
+    transition: none;
+  }
+
+  .VPFeature:hover,
+  .community-card:hover {
+    transform: none;
+  }
 }
 
 /* ===== 滚动条 ===== */
@@ -593,18 +508,13 @@
 /* ===== 响应式 ===== */
 
 @media (max-width: 960px) {
-  /* 隐藏两侧装饰 */
   .VPHome::before,
-  .VPHome::after,
-  .VPHome .VPFeatures::before,
-  .VPHome .VPFeatures::after {
+  .VPHome::after {
     display: none;
   }
 
-  /* Hero 按钮调整 */
   .VPHero .actions .action a.VPButton {
-    padding: 14px 32px !important;
-    font-size: 0.95rem !important;
+    padding: 12px 28px !important;
   }
 }
 
@@ -617,14 +527,6 @@
   .community-grid,
   .usage-grid {
     grid-template-columns: 1fr;
-  }
-
-  .quote-section {
-    padding: 28px 20px;
-  }
-
-  .quote-section .quote-text {
-    font-size: 1.05rem;
   }
 
   .VPHero .actions {
