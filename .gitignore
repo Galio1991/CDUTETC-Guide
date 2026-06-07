@@ -18,8 +18,6 @@ skills-lock.json
 .impeccable/
 
 # 开发文档（不参与站点构建）
-docs/content-design.md
-docs/technical-architecture.md
 docs/superpowers/
 PRODUCT.md
 DESIGN.md
