@@ -15,6 +15,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '生存指南', link: '/survival/' },
       { text: '飞跃手册', link: '/leap/' },
+      { text: '技术文档', link: '/blog/' },
       { text: '投稿指南', link: '/contribute' },
       {
         text: 'GitHub',
@@ -24,7 +25,8 @@ export default defineConfig({
 
     sidebar: {
       '/survival/': getSidebar('docs/survival'),
-      '/leap/': getSidebar('docs/leap')
+      '/leap/': getSidebar('docs/leap'),
+      '/blog/': getSidebar('docs/blog')
     },
 
     search: {

@@ -23,7 +23,7 @@ features:
     link: /leap/
   - icon: ✍️
     title: 投稿分享
-    details: 欢迎每一位同学分享你的经验，帮助后来者少走弯路
+    details: 欢迎每一位同学分享你的经验
     link: /contribute
 ---
 
@@ -31,9 +31,11 @@ features:
 
 ## 关于本文档
 
-欢迎来到成理工程生存指南 & 飞跃手册。这是一份由成都理工大学工程技术学院贴吧吧务团队发起、同学们共同维护的知识库。
+欢迎来到成理工程生存指南 & 飞跃手册。这是一份由成都理工大学工程技术学院贴吧吧务团队运营、同学们共同维护的知识手册。
 
 我们希望为在校生和新生提供实用的校园生活指南，也为即将升学或就业的同学提供来自学长学姐的真实经验参考。无论你处于大学的哪个阶段，都欢迎在这里找到你需要的信息。
+
+我们由衷的希望你在接受这份馈赠的同时，也能够愿意参与到该项目的建设中与维护中。
 
 <div class="geo-divider">
 <span class="line"></span>
@@ -66,7 +68,7 @@ features:
 
 ### 📝 参与投稿
 
-如果你有经验想要分享，欢迎参考 [投稿指南](/contribute) 进行投稿，帮助后来者少走弯路。
+如果你有经验想要分享，欢迎参考 [投稿指南](/contribute) 进行投稿。
 
 </div>
 </div>
@@ -93,15 +95,17 @@ features:
 <a href="https://tieba.baidu.com/f?kw=成都理工大学工程技术学院" target="_blank" rel="noopener">前往贴吧 →</a>
 
 </div>
+
 <div class="community-card">
 
 ### 👥 新生迎新群
 
-QQ 群号：待公布
+QQ 群号：585935582
 
 欢迎加入贴吧迎新群，结识同届的小东西以及往届的老东西。
 
 </div>
+
 <div class="community-card">
 
 ### ✍️ 投稿分享
@@ -112,5 +116,23 @@ QQ 群号：待公布
 
 </div>
 </div>
+
+<div class="geo-divider">
+<span class="line"></span>
+<span class="dot"></span>
+<span class="circle"></span>
+<span class="diamond"></span>
+<span class="circle"></span>
+<span class="dot"></span>
+<span class="line"></span>
+</div>
+
+## 贡献者
+
+感谢所有为本项目贡献内容的同学！
+
+<a href="https://github.com/cdutetc-tieba/CDUTETC-Guide/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=cdutetc-tieba/CDUTETC-Guide" alt="Contributors" />
+</a>
 
 </div>

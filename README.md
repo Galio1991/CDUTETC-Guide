@@ -39,8 +39,8 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/Galio1991/CLGC.git
-cd CLGC
+git clone https://github.com/cdutetc-tieba/CDUTETC-Guide.git
+cd CDUTETC-Guide
 
 # 安装依赖
 pnpm install
