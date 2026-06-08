@@ -27,6 +27,7 @@ title: 投稿指南
 - 使用英文短横线命名（kebab-case）
 - 简短且有意义
 - 示例：`postgraduate-experience.md`、`dorm-life-guide.md`
+- 若是通过邮箱投稿，请标明投稿内容的所属分区，方便编者调整
 
 ## Frontmatter 说明
 

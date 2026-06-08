@@ -15,12 +15,17 @@ interface CategoryMeta {
   collapsed: boolean
 }
 
+interface OrderedItem {
+  order: number
+  item: SidebarItem
+}
+
 function getCategoryMeta(dirPath: string): CategoryMeta {
   const categoryFile = path.join(dirPath, '_category.md')
   const defaults: CategoryMeta = {
     title: path.basename(dirPath),
     order: 99,
-    collapsed: false
+    collapsed: true
   }
 
   if (!fs.existsSync(categoryFile)) {
@@ -37,23 +42,18 @@ function getCategoryMeta(dirPath: string): CategoryMeta {
   }
 }
 
-function getMdFiles(dirPath: string, basePath: string): SidebarItem[] {
-  const files = fs.readdirSync(dirPath)
-  const items: { order: number; item: SidebarItem }[] = []
+function getSidebarItems(dirPath: string, basePath: string): SidebarItem[] {
+  const entries = fs.readdirSync(dirPath)
+  const items: OrderedItem[] = []
 
-  for (const file of files) {
-    const fullPath = path.join(dirPath, file)
+  for (const entry of entries) {
+    const fullPath = path.join(dirPath, entry)
     const stat = fs.statSync(fullPath)
 
-    if (
-      stat.isFile() &&
-      file.endsWith('.md') &&
-      file !== '_category.md' &&
-      file !== 'index.md'
-    ) {
+    if (stat.isFile() && entry.endsWith('.md') && entry !== '_category.md' && entry !== 'index.md') {
       const content = fs.readFileSync(fullPath, 'utf-8')
       const { data } = matter(content)
-      const name = file.replace(/\.md$/, '')
+      const name = entry.replace(/\.md$/, '')
 
       items.push({
         order: data.order ?? 99,
@@ -62,6 +62,23 @@ function getMdFiles(dirPath: string, basePath: string): SidebarItem[] {
           link: path.join(basePath, name)
         }
       })
+    } else if (stat.isDirectory()) {
+      const meta = getCategoryMeta(fullPath)
+      const subBasePath = path.join(basePath, entry)
+      const children = getSidebarItems(fullPath, subBasePath)
+
+      if (children.length > 0) {
+        const hasIndex = fs.existsSync(path.join(fullPath, 'index.md'))
+        items.push({
+          order: meta.order,
+          item: {
+            text: meta.title,
+            link: hasIndex ? path.join(subBasePath, 'index') : undefined,
+            collapsed: meta.collapsed,
+            items: children
+          }
+        })
+      }
     }
   }
 
@@ -71,31 +88,6 @@ function getMdFiles(dirPath: string, basePath: string): SidebarItem[] {
 
 export function getSidebar(dirPath: string): SidebarItem[] {
   const fullDirPath = path.resolve(dirPath)
-  const entries = fs.readdirSync(fullDirPath)
-  const groups: { order: number; item: SidebarItem }[] = []
-
-  for (const entry of entries) {
-    const fullPath = path.join(fullDirPath, entry)
-    const stat = fs.statSync(fullPath)
-
-    if (stat.isDirectory()) {
-      const meta = getCategoryMeta(fullPath)
-      const basePath = '/' + path.join(path.basename(dirPath), entry)
-      const children = getMdFiles(fullPath, basePath)
-
-      if (children.length > 0) {
-        groups.push({
-          order: meta.order,
-          item: {
-            text: meta.title,
-            collapsed: meta.collapsed,
-            items: children
-          }
-        })
-      }
-    }
-  }
-
-  groups.sort((a, b) => a.order - b.order)
-  return groups.map(g => g.item)
+  const basePath = '/' + path.basename(dirPath)
+  return getSidebarItems(fullDirPath, basePath)
 }
