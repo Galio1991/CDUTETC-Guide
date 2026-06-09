@@ -108,7 +108,7 @@
 
 ### 目录约定与文件命名
 
-```
+```text
 docs/survival/academics/
   ├── _category.md        # 分类元信息（标题、描述、图标、排序）
   ├── exam-tips.md        # 具体内容文件

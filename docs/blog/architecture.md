@@ -35,7 +35,7 @@
 
 ## 2. 项目目录结构
 
-```
+```text
 CLGC/
 ├── .github/
 │   └── workflows/
