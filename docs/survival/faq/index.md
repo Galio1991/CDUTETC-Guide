@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: 常见问题
 order: 1
 description: 常见问题解答
 ---

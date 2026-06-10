@@ -228,6 +228,34 @@
   );
 }
 
+/* ===== 引用块段落间距 ===== */
+
+.vp-doc blockquote p {
+  margin: 12px 0;
+}
+
+.vp-doc blockquote p:first-child {
+  margin-top: 0;
+}
+
+.vp-doc blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 文档页段落间距 ===== */
+
+.vp-doc p + p {
+  margin-top: 16px !important;
+}
+
+.vp-doc div p:first-child {
+  margin-top: 0;
+}
+
+.vp-doc div p:last-child {
+  margin-bottom: 0;
+}
+
 /* ===== 文档页 h2 ===== */
 
 .vp-doc h2 {
