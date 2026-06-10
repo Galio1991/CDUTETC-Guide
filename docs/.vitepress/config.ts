@@ -10,6 +10,10 @@ export default defineConfig({
   srcExclude: ['superpowers/**', 'templates/**', 'content-design.md', 'technical-architecture.md'],
   ignoreDeadLinks: true,
 
+  head: [
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/tieba.ico' }]
+  ],
+
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
